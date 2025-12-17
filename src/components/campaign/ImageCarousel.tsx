@@ -80,17 +80,15 @@ const ImageCarousel = () => {
   return (
     <section className="py-12 md:py-20 bg-gradient-to-b from-background to-campaign-dark/10">
       <div className="container mx-auto px-4 md:px-8">
-
         {/* HERO CON IMAGEN DE FONDO + EFECTO SCROLL */}
         <div className="relative w-screen left-1/2 -translate-x-1/2 mb-12">
-  <div
-  className="relative h-40 md:h-48 lg:h-56 bg-cover bg-no-repeat"
-  style={{
-    backgroundImage: `url(${imagen10})`,
-    backgroundPosition: `center calc(86% + ${scrollY * 0.18}px - 256px)`,
-  }}
->
-
+          <div
+            className="relative h-40 md:h-48 lg:h-56 bg-cover bg-no-repeat"
+            style={{
+              backgroundImage: `url(${imagen10})`,
+              backgroundPosition: `center calc(86% + ${scrollY * 0.17}px - 255px)`,
+            }}
+          >
             <div className="absolute inset-0 bg-black/60" />
           </div>
 
@@ -106,26 +104,36 @@ const ImageCarousel = () => {
 
         {/* CARRUSEL */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Flecha izquierda */}
+          {/* Flecha izquierda - AHORA VISIBLE EN MÓVILES */}
           <button
             onClick={() => api?.scrollPrev()}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20
-                       hidden md:flex items-center justify-center
-                       bg-black/40 hover:bg-black/60 backdrop-blur
-                       text-white rounded-full p-2 transition"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20
+                       flex items-center justify-center
+                       bg-black/70 hover:bg-black/90 backdrop-blur-md
+                       text-white rounded-full p-2 md:p-3
+                       shadow-lg hover:shadow-xl
+                       border-2 border-white/20 hover:border-white/40
+                       transition-all duration-300
+                       w-10 h-10 md:w-12 md:h-12"
+            aria-label="Imagen anterior"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
-          {/* Flecha derecha */}
+          {/* Flecha derecha - AHORA VISIBLE EN MÓVILES */}
           <button
             onClick={() => api?.scrollNext()}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20
-                       hidden md:flex items-center justify-center
-                       bg-black/40 hover:bg-black/60 backdrop-blur
-                       text-white rounded-full p-2 transition"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20
+                       flex items-center justify-center
+                       bg-black/70 hover:bg-black/90 backdrop-blur-md
+                       text-white rounded-full p-2 md:p-3
+                       shadow-lg hover:shadow-xl
+                       border-2 border-white/20 hover:border-white/40
+                       transition-all duration-300
+                       w-10 h-10 md:w-12 md:h-12"
+            aria-label="Siguiente imagen"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
           <Carousel
@@ -133,7 +141,7 @@ const ImageCarousel = () => {
             opts={{ align: "center", loop: true }}
             plugins={[
               Autoplay({
-                delay: 4000,
+                delay: 2500, // 🔹 AUMENTADA LA VELOCIDAD: de 4000ms a 2500ms
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
               }),
@@ -155,17 +163,15 @@ const ImageCarousel = () => {
                         ${isActive ? " z-10" : " opacity-80"}
                       `}
                     >
- <img
-  src={image.src}
-  alt={image.alt}
-  className={`
-    w-full h-full object-cover rounded-2xl
-    transition-transform duration-500
-    ${isActive ? "scale-110" : "scale-100"}
-  `}
-/>
-
-
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className={`
+                          w-full h-full object-cover rounded-2xl
+                          transition-transform duration-500
+                          ${isActive ? "scale-110" : "scale-100"}
+                        `}
+                      />
 
                       <div
                         className={`
@@ -205,8 +211,23 @@ const ImageCarousel = () => {
           </Carousel>
         </div>
 
-        {/* Indicador */}
-       
+        {/* Indicadores de navegación (opcional) */}
+        <div className="flex justify-center mt-8 gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={`
+                w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300
+                ${index === current 
+                  ? "bg-primary w-4 md:w-6" 
+                  : "bg-gray-400 hover:bg-gray-600"
+                }
+              `}
+              aria-label={`Ir a imagen ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
