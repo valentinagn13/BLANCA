@@ -2,34 +2,7 @@ import { GraduationCap, Stethoscope, Tractor, Building, Leaf, Users } from "luci
 
 const ProposalsSection = () => {
   const proposals = [
-    {
-      icon: GraduationCap,
-      title: "Educación de Calidad",
-      description:
-        "Fortalecimiento de instituciones educativas, becas para jóvenes talentosos y programas de formación técnica para el empleo.",
-      highlights: ["Más becas universitarias", "Tecnología en escuelas", "Capacitación docente"],
-    },
-    {
-      icon: Stethoscope,
-      title: "Salud para Todos",
-      description:
-        "Ampliación de cobertura en salud, mejora de centros médicos rurales y programas de prevención comunitaria.",
-      highlights: ["Brigadas de salud", "Medicamentos accesibles", "Atención rural"],
-    },
-    {
-      icon: Tractor,
-      title: "Apoyo al Campo",
-      description:
-        "Incentivos para agricultores, mejora de vías terciarias y acceso a mercados justos para nuestros productos.",
-      highlights: ["Créditos agrícolas", "Comercio justo", "Tecnificación"],
-    },
-    {
-      icon: Building,
-      title: "Desarrollo Urbano",
-      description:
-        "Mejoramiento de infraestructura, espacios públicos dignos y programas de vivienda social accesible.",
-      highlights: ["Vivienda digna", "Parques y recreación", "Transporte público"],
-    },
+    
     {
       icon: Leaf,
       title: "Medio Ambiente",

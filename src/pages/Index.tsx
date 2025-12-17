@@ -45,7 +45,7 @@ const Index = () => {
                 <Proposals />
 
         <TrajectorySection />
-          <ProposalsSection />
+          {/* <ProposalsSection /> */}
         <ContactSection />
       </main>
     </div>
