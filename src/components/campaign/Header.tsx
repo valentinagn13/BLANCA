@@ -20,7 +20,7 @@ const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="text-primary-foreground font-bold text-lg md:text-xl tracking-wide">
-              Andrea Gustavo
+              BLANCA NUBIA
             </span>
             <span className="text-primary/80 text-xs md:text-sm font-medium uppercase tracking-widest">
               Concejal Caquetá

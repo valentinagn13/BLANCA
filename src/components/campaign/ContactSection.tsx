@@ -25,8 +25,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Correo",
-      value: "contacto@andrea502.com",
-      href: "mailto:contacto@andrea502.com",
+      value: "contacto@BLANCA502.com",
+      href: "mailto:contacto@BLANCA502.com",
     },
     {
       icon: MapPin,
@@ -207,7 +207,7 @@ const ContactSection = () => {
                   502
                 </div>
                 <div className="text-primary-foreground">
-                  <p className="font-bold">Andrea Gustavo</p>
+                  <p className="font-bold">BLANCA NUBIA</p>
                   <p className="text-sm opacity-80">Concejal Caquetá</p>
                 </div>
               </div>
@@ -220,7 +220,7 @@ const ContactSection = () => {
       <div className="mt-24 pt-8 border-t border-primary/20">
         <div className="container mx-auto px-6 md:px-12 text-center">
           <p className="text-primary-foreground/50 text-sm">
-            © 2024 Andrea Gustavo - Candidato al Concejo de Caquetá. Todos los
+            © 2024 BLANCA NUBIA - Candidato al Concejo de Caquetá. Todos los
             derechos reservados.
           </p>
         </div>
