@@ -10,9 +10,8 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
 
   const menuItems = [
     { id: "quien-soy", label: "¿QUIÉN SOY?" },
-       { id: "trayectoria", label: "TRAYECTORIA" },
+    { id: "trayectoria", label: "TRAYECTORIA" },
     // { id: "propuestas", label: "PROPUESTAS" },
- 
     { id: "contacto", label: "CONTACTO" },
   ];
 
@@ -32,7 +31,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
   };
 
   return (
-    <aside className="absolute left-28 top-24 z-30">
+    <aside className="absolute left-4 sm:left-8 md:left-28 top-36 z-30">
       {/* Sidebar */}
       <nav
         className={`
@@ -43,22 +42,24 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
             : "scale-y-0 opacity-0 pointer-events-none"}
         `}
       >
-        <div className="w-48 flex flex-col gap-3 p-2 pt-48">
+        <div className="w-36 sm:w-40 md:w-48 flex flex-col gap-2 sm:gap-3 p-2 pt-48">
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`
-                text-left font-semibold tracking-widest
-                transition-all duration-300
-                bg-primary hover:bg-primary/90
-                text-primary-foreground shadow-md
+                w-full text-left font-semibold transition-all duration-300
+                bg-primary hover:bg-primary/90 text-primary-foreground shadow-md
                 ${
                   activeSection === item.id
                     ? "shadow-glow scale-105 border-2 border-primary-foreground/50"
                     : "border border-primary-foreground/30"
                 }
-                py-4 px-6
+                py-2.5 px-3 sm:py-3 sm:px-4 md:py-4 md:px-4
+                rounded-lg
+                text-xs sm:text-sm md:text-base
+                tracking-tight sm:tracking-normal md:tracking-widest
+                overflow-hidden text-ellipsis whitespace-nowrap
               `}
             >
               {item.label}
@@ -73,7 +74,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
         className={`
           absolute top-32 left-0 z-40
           flex items-center justify-center
-          w-12 h-10 rounded-md
+          w-9 h-8 sm:w-10 sm:h-9 md:w-12 md:h-10 rounded-md
           bg-primary hover:bg-primary/90
           border-2 border-primary-foreground/30
           transition-transform duration-300
@@ -81,7 +82,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
         `}
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
       >
-        <ChevronUp className="w-6 h-6 text-primary-foreground" />
+        <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary-foreground" />
       </button>
     </aside>
   );

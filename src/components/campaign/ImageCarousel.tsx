@@ -87,7 +87,7 @@ const ImageCarousel = () => {
   className="relative h-40 md:h-48 lg:h-56 bg-cover bg-no-repeat"
   style={{
     backgroundImage: `url(${imagen10})`,
-    backgroundPosition: `center calc(80% + ${scrollY * 0.20}px)`,
+    backgroundPosition: `center calc(86% + ${scrollY * 0.18}px - 256px)`,
   }}
 >
 

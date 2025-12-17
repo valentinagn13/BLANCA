@@ -87,7 +87,7 @@ const ContactSection = () => {
               </h3>
 
               <p className="text-primary-foreground/80 mb-6">
-                Tu apoyo es clave para transformar el Caquetá. Este 27 de octubre,
+                Tu apoyo es clave para transformar el Caquetá. En estas elecciones de  Cámara de Representantes,
                 marca el número 502.
               </p>
 
