@@ -6,9 +6,7 @@ const ContactSection = () => {
       icon: Facebook,
       href: "https://www.facebook.com/MerkproyectosJAB/?locale=es_LA",
       label: "Facebook",
-    },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    }
   ];
 
   return (
@@ -61,7 +59,7 @@ const ContactSection = () => {
             {/* Redes */}
             <div>
               <h3 className="text-xl font-bold text-primary-foreground mb-4">
-                Sígueme en redes
+                Sígueme en Facebook
               </h3>
 
               <div className="flex gap-4">
@@ -87,7 +85,7 @@ const ContactSection = () => {
               </h3>
 
               <p className="text-primary-foreground/80 mb-6">
-                Tu apoyo es clave para transformar el Caquetá. En estas elecciones de  Cámara de Representantes,
+                Tu apoyo es clave para transformar el Caquetá. En estas elecciones de Cámara de Representantes por la Circunscripción especial Territorial para la paz,
                 marca el número 502.
               </p>
 
@@ -98,7 +96,7 @@ const ContactSection = () => {
 
                 <div className="text-primary-foreground">
                   <p className="font-bold">BLANCA NUBIA</p>
-                  <p className="text-sm opacity-80">Concejal Caquetá</p>
+                  <p className="text-sm opacity-80">Cámara de Representantes por la Circunscripción especial Territorial para la paz </p>
                 </div>
               </div>
             </div>
