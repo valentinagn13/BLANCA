@@ -107,7 +107,7 @@ const ContactSection = () => {
       {/* Footer */}
       <div className="mt-24 pt-8 border-t border-primary/20 text-center">
         <p className="text-primary-foreground/50 text-sm">
-          © 2024 BLANCA NUBIA – Todos los derechos reservados.
+          © 2025 BLANCA NUBIA – Todos los derechos reservados.
         </p>
       </div>
     </section>
