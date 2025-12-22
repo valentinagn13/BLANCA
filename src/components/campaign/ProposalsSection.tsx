@@ -1,100 +1,221 @@
-import { GraduationCap, Stethoscope, Tractor, Building, Leaf, Users } from "lucide-react";
+import { useState } from "react";
+import targetonImage from "@/assets/targeton.jpeg";
+import flag2 from "@/assets/flag2.png"; // Asegúrate de que la ruta sea correcta
 
 const ProposalsSection = () => {
-  const proposals = [
-    
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const votingSteps = [
     {
-      icon: Leaf,
-      title: "Medio Ambiente",
+      step: "01",
+      title: "Recibe el tarjetón",
       description:
-        "Protección de nuestros recursos naturales, programas de reforestación y gestión sostenible del territorio.",
-      highlights: ["Reforestación", "Reciclaje", "Energías limpias"],
+        "En tu puesto de votación, recibe el tarjetón para CÁMARA DE REPRESENTANTES - CAQUETÁ.",
     },
     {
-      icon: Users,
-      title: "Inclusión Social",
+      step: "02",
+      title: "Encuentra a ASTORRES - Corazón Campesino",
       description:
-        "Programas para adultos mayores, personas con discapacidad y comunidades vulnerables de nuestra región.",
-      highlights: ["Adultos mayores", "Jóvenes en riesgo", "Comunidades étnicas"],
+        "En la casilla de ASTORRES (Corazón Campesino), verás el número 502.",
+    },
+    {
+      step: "03",
+      title: "Marca la X sobre el número 502",
+      description:
+        "Marca la X sobre el número 502 dentro de la casilla ASTORRES. NO marques más de una casilla ni más de un número.",
+    },
+    {
+      step: "04",
+      title: "Verifica y entrega tu voto",
+      description:
+        "Antes de entregar, confirma que solo marcaste la X sobre el 502 dentro de ASTORRES - Corazón Campesino.",
     },
   ];
 
-  return (
-    <section id="propuestas" className="py-24 md:py-32 bg-campaign-dark relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl" />
-      </div>
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // Previene el scroll del body
+  };
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "auto"; // Restaura el scroll del body
+  };
+
+  return (
+    <section id="votar" className="py-16 md:py-24 bg-white relative">
+      {/* Modal para imagen ampliada */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-5xl max-h-[90vh]">
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white text-3xl hover:text-orange-400 transition-colors"
+            >
+              ✕
+            </button>
+            <img
+              src={targetonImage}
+              alt="Tarjetón electoral ampliado"
+              className="max-w-full max-h-[85vh] object-contain rounded-lg"
+            />
+            <p className="text-white text-center mt-4 text-sm opacity-80">
+              Haz click fuera de la imagen para cerrar
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="container mx-auto px-4 md:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/20 text-primary font-semibold text-sm uppercase tracking-widest rounded-full mb-6">
-            Propuestas
+        <div className="text-center mb-12 md:mb-16">
+          <span className="inline-block px-4 py-1.5 bg-orange-50 text-orange-600 font-semibold text-sm uppercase tracking-widest rounded-full mb-4">
+            Elecciones - Cámara de Representantes
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
-            Un plan real para el
-            <span className="text-gradient block mt-2">cambio que necesitamos</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Cómo votar por
+            <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent block mt-2">
+              Blanca Nubia Cunacue
+            </span>
           </h2>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
-            Estas son las propuestas que guiarán mi gestión como concejal. Cada
-            una nace de escuchar a nuestra gente y entender sus necesidades.
-          </p>
         </div>
 
-        {/* Proposals Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {proposals.map((proposal, index) => (
-            <div
-              key={proposal.title}
-              className="group bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
-                <proposal.icon className="w-7 h-7 text-primary-foreground" />
+        {/* Main Content - Imagen y Pasos */}
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Imagen del Tarjetón - AUMENTADA */}
+          <div className="order-2 lg:order-1">
+            <div className="relative bg-gradient-to-br from-orange-50 to-white rounded-2xl p-6 md:p-8 shadow-xl border border-orange-100">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg">
+                TARJETÓN
               </div>
-
-              <h3 className="text-xl font-bold text-primary-foreground mb-3">
-                {proposal.title}
-              </h3>
-
-              <p className="text-primary-foreground/70 mb-6 leading-relaxed">
-                {proposal.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {proposal.highlights.map((highlight) => (
-                  <span
-                    key={highlight}
-                    className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full"
-                  >
-                    {highlight}
+              
+              <div className="mt-8 cursor-pointer group" onClick={openModal}>
+                <div className="relative overflow-hidden rounded-xl border-8 border-white shadow-2xl transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-3xl">
+                  <img
+                    src={targetonImage}
+                    alt="Tarjetón electoral Cámara de Representantes Caquetá con número 502 tachado"
+                    className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Overlay para indicar que es clickeable */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-80 p-3 rounded-full">
+                      <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-center text-gray-600 text-sm mt-4">
+                  <span className="inline-flex items-center gap-1 text-orange-600 font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                    </svg>
+                    Haz click para ampliar la imagen
                   </span>
-                ))}
+                </p>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Pasos para votar */}
+          <div className="order-1 lg:order-2">
+            <div className="space-y-6 md:space-y-8">
+              {votingSteps.map((step, index) => (
+                <div
+                  key={step.step}
+                  className="group flex gap-4 md:gap-6 p-5 md:p-6 bg-gradient-to-r from-white to-orange-50 hover:from-orange-50 hover:to-red-50 rounded-xl transition-all duration-300 hover:shadow-lg border border-orange-100 hover:border-orange-300"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  {/* Número del paso */}
+                  <div className="flex-shrink-0">
+                    <div className="
+                      w-12 h-12 md:w-14 md:h-14 
+                      bg-gradient-to-br from-orange-500 to-red-600 
+                      text-white 
+                      rounded-full 
+                      flex items-center justify-center
+                      font-bold text-lg md:text-xl
+                      shadow-md shadow-orange-200
+                      group-hover:scale-110 
+                      group-hover:shadow-lg
+                      transition-all duration-300
+                    ">
+                      {step.step}
+                    </div>
+                  </div>
+
+                  {/* Contenido del paso */}
+                  <div className="flex-1">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-700 transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                      {step.description}
+                    </p>
+                    
+                    {/* Destacar información clave en pasos específicos */}
+                    {step.step === "02" && (
+                      <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                        <span className="text-orange-600">📍</span>
+                        ASTORRES - CORAZÓN CAMPESINO • Número 502
+                      </div>
+                    )}
+                    
+                    {step.step === "03" && (
+                      <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">
+                        <span className="text-red-600">✗</span>
+                        Solo marca la X sobre el número 502
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-primary-foreground/70 mb-6">
-            ¿Tienes una propuesta para mejorar nuestra región?
-          </p>
-          <button
-            onClick={() => {
-              const element = document.getElementById("contacto");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            className="px-8 py-4 bg-gradient-primary text-primary-foreground font-bold rounded-lg shadow-glow hover:shadow-campaign transition-all duration-300 hover:scale-105 uppercase tracking-wide"
-          >
-            Comparte tu idea
-          </button>
-        </div>
+        {/* Espacio entre los steps y la sección naranja */}
+        <div className="h-16 md:h-20"></div>
+
       </div>
+
+      {/* Sección naranja */}
+      <section 
+        id="propuestas"
+        className="py-10 md:py-14 relative overflow-hidden"
+        style={{ background: "linear-gradient(to right, #e86f2e, #b22824)" }}
+      >
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-secondary rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10 flex items-center">
+          {/* Bandera a la izquierda con borde negro sin redondear - TAMAÑO AUMENTADO */}
+          <div className="flex-shrink-0 mr-8">
+            <img
+              src={flag2}
+              alt="Bandera"
+              className="w-44 md:w-52 border-2 border-black"
+            />
+          </div>
+
+          {/* Texto central - TEXTO DISMINUIDO */}
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+              ¡Tu voto construye el futuro de Caquetá!
+              <span className="block mt-2 text-lg md:text-2xl font-semibold">
+                VOTA 502 • ASTORRES
+              </span>
+            </h2>
+          </div>
+        </div>
+      </section>
     </section>
   );
 };

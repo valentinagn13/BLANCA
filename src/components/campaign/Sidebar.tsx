@@ -10,8 +10,9 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
 
   const menuItems = [
     { id: "quien-soy", label: "¿QUIÉN SOY?" },
+        { id: "votar", label: "CÓMO VOTAR" },
+
     { id: "trayectoria", label: "TRAYECTORIA" },
-    // { id: "propuestas", label: "PROPUESTAS" },
     { id: "contacto", label: "CONTACTO" },
   ];
 

@@ -43,9 +43,9 @@ const Index = () => {
         <AboutSection />
         <ImageCarousel />
                 <Proposals />
+          <ProposalsSection />
 
         <TrajectorySection />
-          {/* <ProposalsSection /> */}
         <ContactSection />
       </main>
     </div>

@@ -23,7 +23,7 @@ const Header = () => {
               BLANCA NUBIA
             </span>
             <span className="text-primary/80 text-xs md:text-sm font-medium uppercase tracking-widest">
-              Concejal Caquetá
+              Cámara de Representantes
             </span>
           </div>
         </div>
