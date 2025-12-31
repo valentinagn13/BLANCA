@@ -7,6 +7,8 @@ import ProposalsSection from "@/components/campaign/ProposalsSection";
 import Proposals from "@/components/campaign/Proposals";
 import TrajectorySection from "@/components/campaign/TrajectorySection";
 import ContactSection from "@/components/campaign/ContactSection";
+import VotarSection from "@/components/campaign/VotarSection";
+import FechaSection from "@/components/campaign/FechaSection";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -43,7 +45,10 @@ const Index = () => {
         <AboutSection />
         <ImageCarousel />
                 <Proposals />
+                {/* <VotarSection /> */}
+
           <ProposalsSection />
+                          <FechaSection />
 
         <TrajectorySection />
         <ContactSection />

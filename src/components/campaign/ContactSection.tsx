@@ -96,7 +96,7 @@ const ContactSection = () => {
 
                 <div className="text-primary-foreground">
                   <p className="font-bold">BLANCA NUBIA</p>
-                  <p className="text-sm opacity-80">Cámara de Representantes por la Circunscripción especial Territorial para la paz </p>
+                  <p className="text-sm opacity-80"> CITREP 5. Cámara de Representantes por la Circunscripción especial Territorial para la paz por las víctimas</p>
                 </div>
               </div>
             </div>
